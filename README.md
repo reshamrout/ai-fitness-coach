@@ -40,7 +40,7 @@ Follow these steps to run the project locally.
 ### 1. Clone the repository
 
 ```bash
-git clone [https://github.com/reshamrout/ai-fitness-coach.git](https://github.com/reshamrout/ai-fitness-coach.git)
+git clone [https://github.com/reshamrout/ai-fitness-coach.git]
 cd ai-fitness-coach
 ```
 
