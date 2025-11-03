@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   try {
     const { prompt } = req.body;
     const API_KEY = process.env.VITE_GEMINI_API_KEY; // Use the same key
-    const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image:generateContent?key=${API_KEY}`;
+    const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
     
     // Safety settings (as we used before)
     const safetySettings = [
