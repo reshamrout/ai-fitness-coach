@@ -34,28 +34,27 @@ const pollForPrediction = async (predictionUrl) => {
 
   } while (prediction.status !== 'succeeded');
 
-  return prediction.output[0]; // The image URL
+  return prediction.output[0]; 
 };
 
 export const generateImage = async (prompt) => {
   try {
-    // This path will be proxied by Vite to:
-    // https://api.replicate.com/v1/predictions
+   
     const startResponse = await fetch('/api/replicate/v1/predictions', {
       method: 'POST',
       headers: { 
         'Content-Type': 'application/json' 
-        // No 'Authorization' header needed here, Vite adds it!
+       
       },
       body: JSON.stringify({
-        // This is the model ID for "stable-diffusion-3-medium"
+       
         version: "7762fd07cf82c948538e41f63f77d685e02b063e37e496e96eefd46c929f9bdc",
         input: { prompt: prompt },
       }),
     });
 
     if (!startResponse.ok) {
-      // The 404 error was happening here, causing the .json() to fail
+    
       const error = await startResponse.json(); 
       throw new Error(error.detail || 'Failed to start image generation');
     }

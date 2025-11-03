@@ -73,7 +73,7 @@ export default function UserForm({ onSubmit }) {
           </div>
         </div>
 
-        {/* --- Fitness Goals --- */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="goal" className={labelStyle}>Fitness Goal</label>
@@ -94,7 +94,7 @@ export default function UserForm({ onSubmit }) {
           </div>
         </div>
 
-        {/* --- Preferences --- */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="location" className={labelStyle}>Workout Location</label>

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Tab } from '@headlessui/react'; // Great for tabs
+import { Tab } from '@headlessui/react'; 
 import Exercise from './Exercise';
 import { playTextToSpeech } from '../api/elevenLabs';
 import { FaVolumeUp } from 'react-icons/fa';
@@ -17,7 +17,6 @@ export default function WorkoutPlan({ plan }) {
     setIsSpeaking(true);
     toast.loading('AI voice is warming up...');
     
-    // Format text for TTS
     let textToRead = `Workout for ${dayPlan.day}, focusing on ${dayPlan.focus}. `;
     dayPlan.routine.forEach(ex => {
       textToRead += `${ex.exercise}: ${ex.sets} sets of ${ex.reps}. `;

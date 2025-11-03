@@ -2,7 +2,7 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // This scans all your components
+    "./src/**/*.{js,ts,jsx,tsx}", 
   ],
   darkMode: 'class',
   theme: {

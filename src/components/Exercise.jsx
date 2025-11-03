@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaImage } from 'react-icons/fa';
-import Modal from './Modal'; // We'll create this next
-import { generateVisualImage } from '../api/gemini'; // Changed from 'replicate'
+import Modal from './Modal'; 
+import { generateVisualImage } from '../api/gemini'; 
 import toast from 'react-hot-toast';
 
 export default function Exercise({ exercise }) {
@@ -14,7 +14,7 @@ export default function Exercise({ exercise }) {
     setIsModalOpen(true);
     setIsLoadingImage(true);
     
-    // Simple prompt for the image model
+ 
     const prompt = `Generate a high-quality, photorealistic image of a person performing a "${exercise.exercise}", in a bright, modern gym setting.`;
     
     try {
@@ -23,7 +23,7 @@ export default function Exercise({ exercise }) {
     } catch (error) {
       console.error(error);
       toast.error('Could not generate image.');
-      setIsModalOpen(false); // Close modal on error
+      setIsModalOpen(false); 
     }
     setIsLoadingImage(false);
   };
@@ -53,7 +53,6 @@ export default function Exercise({ exercise }) {
         {isLoadingImage ? (
           <div className="text-center p-4">
             <p>Generating image for "{exercise.exercise}"...</p>
-            {/* You can add a spinner here */}
           </div>
         ) : (
           <img src={imageUrl} alt={exercise.exercise} className="w-full rounded-lg" />

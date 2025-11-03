@@ -1,4 +1,4 @@
-// /api/gemini-image.js
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -7,10 +7,10 @@ export default async function handler(req, res) {
 
   try {
     const { prompt } = req.body;
-    const API_KEY = process.env.VITE_GEMINI_API_KEY; // Use the same key
+    const API_KEY = process.env.VITE_GEMINI_API_KEY;
     const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-pro:generateContent?key=${API_KEY}`;
     
-    // Safety settings (as we used before)
+
     const safetySettings = [
       { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
       { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
@@ -38,7 +38,6 @@ export default async function handler(req, res) {
       throw new Error('API did not return image data.');
     }
 
-    // Send back the data URL
     res.status(200).json({ url: `data:${image.mimeType};base64,${image.data}` });
 
   } catch (error) {

@@ -1,4 +1,4 @@
-// /api/elevenlabs.js
+
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -27,7 +27,6 @@ export default async function handler(req, res) {
       throw new Error(`ElevenLabs API failed: ${apiResponse.status}`);
     }
 
-    // Send the audio file back to the browser
     const audioBuffer = await apiResponse.arrayBuffer();
     res.setHeader('Content-Type', 'audio/mpeg');
     res.send(Buffer.from(audioBuffer));

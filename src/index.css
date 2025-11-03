@@ -1,5 +1,4 @@
 @import "tailwindcss";
-/* Your custom styles are all that should be left */
 @layer components {
   .btn-primary {
     @apply px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300;

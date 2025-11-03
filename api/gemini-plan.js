@@ -1,6 +1,4 @@
-// /api/gemini-plan.js
 
-// This function builds the prompt, just like your old file
 const buildPrompt = (data) => {
   return `
     You are an elite-level AI fitness and nutrition coach.
@@ -62,7 +60,7 @@ const buildPrompt = (data) => {
   `;
 };
 
-// This is the Vercel serverless function
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method Not Allowed' });
@@ -70,7 +68,7 @@ export default async function handler(req, res) {
 
   try {
     const formData = req.body;
-    const API_KEY = process.env.VITE_GEMINI_API_KEY; // Get key from Vercel env
+    const API_KEY = process.env.VITE_GEMINI_API_KEY; 
     const URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`;
     
     const prompt = buildPrompt(formData);
@@ -87,7 +85,7 @@ export default async function handler(req, res) {
 
     const data = await apiResponse.json();
     
-    // Clean and send the JSON text from the API
+
     const jsonText = data.candidates[0].content.parts[0].text
       .replace(/```json/g, '')
       .replace(/```/g, '');

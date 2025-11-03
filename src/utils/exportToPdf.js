@@ -2,25 +2,25 @@ import jsPDF from 'jspdf';
 
 export const exportToPdf = (plan, user) => {
   const doc = new jsPDF();
-  let y = 15; // Vertical position tracker
+  let y = 15;
 
-  // Title
+ 
   doc.setFontSize(22);
   doc.text(`AI Fitness Plan for ${user.name}`, 105, y, { align: 'center' });
   y += 10;
   
-  // User Details
+
   doc.setFontSize(12);
   doc.text(`Goal: ${user.goal} | Level: ${user.level} | Location: ${user.location}`, 105, y, { align: 'center' });
   y += 15;
 
-  // --- Workout Plan ---
+
   doc.setFontSize(18);
   doc.text('🏋️ Workout Plan', 15, y);
   y += 7;
 
   plan.workoutPlan.forEach(day => {
-    if (y > 270) { // Check for page break
+    if (y > 270) { 
       doc.addPage();
       y = 15;
     }
@@ -32,11 +32,11 @@ export const exportToPdf = (plan, user) => {
       doc.text(`- ${ex.exercise}: ${ex.sets} sets x ${ex.reps} reps (Rest: ${ex.rest})`, 25, y);
       y += 5;
     });
-    y += 5; // Extra space
+    y += 5; 
   });
 
-  // --- Diet Plan ---
-  if (y > 250) { // Check for page break
+  
+  if (y > 250) { 
     doc.addPage();
     y = 15;
   }
@@ -64,6 +64,6 @@ export const exportToPdf = (plan, user) => {
     y += 7;
   });
 
-  // Save the PDF
+
   doc.save(`AI-Fitness-Plan-${user.name}.pdf`);
 };

@@ -61,7 +61,7 @@ export default function DietPlan({ plan }) {
         <Tab.Group>
           <Tab.List className="flex space-x-1 rounded-xl bg-green-900/20 p-1">
             {plan.map((day) => (
-              <Tab key={day.day} className={/* ... (same as WorkoutPlan) ... */ ({ selected }) =>
+              <Tab key={day.day} className={ ({ selected }) =>
                 classNames(
                   'w-full rounded-lg py-2.5 text-sm font-medium leading-5',
                   'focus:outline-none focus:ring-2 ring-offset-2 ring-offset-green-400 ring-white ring-opacity-60',

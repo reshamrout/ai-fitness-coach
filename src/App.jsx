@@ -13,21 +13,19 @@ import toast from 'react-hot-toast';
 
 export default function App() {
   const [formData, setFormData] = useState('fitnessFormData', null);
-  const [plan, setPlan] = useLocalStorage('fitnessPlan', null); // Use custom hook
+  const [plan, setPlan] = useLocalStorage('fitnessPlan', null); 
   const [isLoading, setIsLoading] = useState(false);
-  const [dailyQuote, setDailyQuote] = useState(''); // Bonus: Daily Quote
+  const [dailyQuote, setDailyQuote] = useState(''); 
 
-  // Load quote on mount
+
   useEffect(() => {
-    // You'd typically call a simpler Gemini function for just a quote
-    // generateQuote().then(setDailyQuote);
     setDailyQuote("\"The only bad workout is the one that didn't happen.\"");
   }, []);
 
   const handleFormSubmit = async (data) => {
     setIsLoading(true);
     setFormData(data);
-    setPlan(null); // Clear old plan
+    setPlan(null); 
     try {
       const generatedPlan = await generateFullPlan(data);
       if (generatedPlan) {
@@ -50,7 +48,7 @@ export default function App() {
   };
 
   const handleSave = () => {
-    // Handled by useLocalStorage hook, but we can add a notification
+   
     toast.success('Plan saved to your browser!');
   };
 
@@ -115,14 +113,3 @@ export default function App() {
   );
 }
 
-// Add this to your index.css for button styles
-/*
-@layer components {
-  .btn-primary {
-    @apply px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 transition duration-300;
-  }
-  .btn-secondary {
-    @apply px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-lg hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-200 dark:hover:bg-gray-600 transition duration-300;
-  }
-}
-*/
