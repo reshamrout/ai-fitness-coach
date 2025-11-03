@@ -67,7 +67,7 @@ export default function App() {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Header />
       <main className="container mx-auto p-4 md:p-8">
-        {!plan && !isLoading && (
+        {(!plan || !plan.workoutPlan || !plan.dietPlan) && !isLoading && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -78,7 +78,7 @@ export default function App() {
         
         {isLoading && <Loader />}
         
-        {plan && !isLoading && (
+        {plan && plan.workoutPlan && plan.dietPlan && !isLoading && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
