@@ -12,13 +12,52 @@ const buildPrompt = (data) => {
     - Current Level: ${data.level}
     - Workout Location: ${data.location}
     - Dietary Preference: ${data.diet}
-    - Optional Info: ${data.medical || 'Not provided'}
+    - Optional Info (Medical, Stress): ${data.medical || 'Not provided'}
 
-    You MUST respond with ONLY a valid JSON object exactly as follows:
+    Your task is to generate a comprehensive, personalized 7-day workout and diet plan.
+    You MUST respond with ONLY a valid JSON object. Do not include any text, greetings, or explanations before or after the JSON block.
+    
+    The JSON structure MUST be exactly as follows:
+
     {
-      "workoutPlan": [ ... 7 days ... ],
-      "dietPlan": [ ... 7 days ... ],
-      "aiTips": "Based on their goal..."
+      "workoutPlan": [
+        {
+          "day": "Day 1",
+          "focus": "Full Body Strength",
+          "routine": [
+            { "exercise": "Squats", "sets": 3, "reps": "10-12", "rest": "60s" },
+            { "exercise": "Push-ups", "sets": 3, "reps": "As many as possible", "rest": "60s" },
+            { "exercise": "Plank", "sets": 3, "reps": "60s", "rest": "60s" }
+          ]
+        },
+        { "day": "Day 2", "focus": "Cardio", "routine": [...] },
+        { "day": "Day 3", "focus": "Upper Body", "routine": [...] },
+        { "day": "Day 4", "focus": "Lower Body", "routine": [...] },
+        { "day": "Day 5", "focus": "Full Body Circuit", "routine": [...] },
+        { "day": "Day 6", "focus": "Active Recovery", "routine": [...] },
+        { "day": "Day 7", "focus": "Rest", "routine": [] }
+      ],
+      "dietPlan": [
+        {
+          "day": "Day 1",
+          "meals": {
+            "breakfast": "Oatmeal with berries and nuts",
+            "lunch": "Grilled Chicken Salad with vinaigrette",
+            "dinner": "Salmon with quinoa and roasted vegetables",
+            "snack": "Greek yogurt"
+          }
+        },
+        {
+          "day": "Day 2",
+          "meals": { ... }
+        },
+        { "day": "Day 3", "meals": { ... } },
+        { "day": "Day 4", "meals": { ... } },
+        { "day": "Day 5", "meals": { ... } },
+        { "day": "Day 6", "meals": { ... } },
+        { "day": "Day 7", "meals": { ... } }
+      ],
+      "aiTips": "Based on your goal of ${data.goal}, remember to prioritize consistent sleep and hydration. Given your ${data.level} level, focus on proper form before increasing weight. ..."
     }
   `;
 };
