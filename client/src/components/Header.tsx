@@ -40,8 +40,12 @@ export default function Header() {
             </>
           ) : (
             <>
-              <Link to="/login" className="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">Log In</Link>
-              <Link to="/register" className="px-5 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:shadow-lg hover:-translate-y-0.5 transition-all">Sign Up Free</Link>
+              <a href="/#features" className="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">Features</a>
+              <a href="/#science" className="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">The Science</a>
+              <a href="/#faq" className="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors">FAQ</a>
+              <div className="w-px h-6 bg-gray-300 dark:bg-gray-700 mx-2"></div>
+              <Link to="/login" className="text-gray-600 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400 transition-colors font-bold">Log In</Link>
+              <Link to="/register" className="px-6 py-2.5 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-none font-bold hover:bg-primary-600 dark:hover:bg-primary-500 hover:text-white transition-colors">Initialize Profile</Link>
             </>
           )}
           
@@ -81,8 +85,12 @@ export default function Header() {
               </>
             ) : (
               <>
-                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg">Log In</Link>
-                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg text-primary-600 font-bold">Sign Up Free</Link>
+                <a href="/#features" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg">Features</a>
+                <a href="/#science" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg">The Science</a>
+                <a href="/#faq" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg">FAQ</a>
+                <div className="h-px w-full bg-gray-200 dark:bg-gray-800 my-2"></div>
+                <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg font-bold">Log In</Link>
+                <Link to="/register" onClick={() => setMobileMenuOpen(false)} className="p-2 text-lg text-primary-600 font-bold">Initialize Profile</Link>
               </>
             )}
             <button 
