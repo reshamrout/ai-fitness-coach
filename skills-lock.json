@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "skills": {
+    "api-design": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "api-design/SKILL.md",
+      "computedHash": "848b72c5c3cd27bf332a4cf74dcb142dcc2e19898cc8c6a0581f15cad08e8e65"
+    },
+    "clean-code": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "clean-code/SKILL.md",
+      "computedHash": "66adb2bf7338b32f46b16bca5c540fa71bb0212a1bbff63e6f914c3ac940fb1b"
+    },
+    "code-comments": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "code-comments/SKILL.md",
+      "computedHash": "0c798b2057f09bedf143a8eb697c6c2f552d80a53deea87ea066f0d9e3f61685"
+    },
+    "express-best-practices": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "express-best-practices/SKILL.md",
+      "computedHash": "c8a98b64278a8938c3276a2466003bdb5d46ce80b4a165538944a4ad0417cf51"
+    },
+    "react-best-practices": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "react-best-practices/SKILL.md",
+      "computedHash": "886dc7c3d904f6c8d7714897c3361a1c9aa6c79cceb40a62bc6e06ddc211a840"
+    },
+    "typescript-style-guide": {
+      "source": "piyushzala158/agent-skills",
+      "sourceType": "github",
+      "skillPath": "typescript-style-guide/SKILL.md",
+      "computedHash": "e994637b73559e469a5d1b89737179f69da5631eaff24e46ab6da5680b46b4ff"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-# 🤖 AI Fitness Coach
+# 🤖 OptiFit AI
 
 An AI-powered web application that generates personalized 7-day workout and diet plans using Google's Gemini API. Users input their personal details, fitness goals, and dietary preferences, and the app generates a comprehensive, AI-driven plan complete with exercise and meal visualizations.
 
