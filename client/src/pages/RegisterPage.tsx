@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { apiClient } from '../api/client';
 import toast from 'react-hot-toast';
+import { FaDumbbell } from 'react-icons/fa';
 
 const registerSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -27,97 +28,120 @@ export default function RegisterPage() {
       const response = await apiClient.post('/auth/register', data);
       if (response.data.success) {
         setIsSuccess(true);
-        toast.success('Registration successful!');
+        toast.success('Profile initialization initiated');
       }
     } catch (error: any) {
-      toast.error(error.response?.data?.error?.message || 'Registration failed');
+      toast.error(error.response?.data?.error?.message || 'Initialization failed');
     }
   };
 
   if (isSuccess) {
     return (
-      <div className="max-w-md mx-auto mt-20 p-8 bg-white dark:bg-gray-800 rounded-2xl shadow-xl text-center">
-        <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl">
-          ✓
+      <div className="min-h-[80vh] flex items-center justify-center -mt-20">
+        <div className="max-w-lg w-full mx-auto p-12 bg-white dark:bg-[#0a0a0f] border border-gray-200 dark:border-gray-800 rounded-none text-center">
+          <div className="w-16 h-16 bg-primary-100 dark:bg-primary-900/30 text-primary-600 border border-primary-200 dark:border-primary-800 rounded-none flex items-center justify-center mx-auto mb-8 text-2xl">
+            ✓
+          </div>
+          <h2 className="text-3xl font-bold font-heading mb-4 text-gray-900 dark:text-white">Verify your identity</h2>
+          <p className="text-gray-600 dark:text-gray-400 mb-10 text-lg">
+            We've transmitted a verification link to your email. Confirm your address to activate your AI Coach.
+          </p>
+          <Link to="/login" className="block w-full py-4 px-4 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-primary-600 font-bold tracking-wide transition-colors">
+            Access Dashboard
+          </Link>
         </div>
-        <h2 className="text-2xl font-bold mb-4">Check your email</h2>
-        <p className="text-gray-600 dark:text-gray-400 mb-8">
-          We've sent a verification link to your email address. Please verify your email to log in.
-        </p>
-        <Link to="/login" className="block w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors">
-          Go to Login
-        </Link>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col md:flex-row h-[calc(100vh-100px)] overflow-hidden rounded-2xl shadow-2xl bg-white dark:bg-gray-800">
-      <div className="w-full md:w-1/2 p-8 md:p-12 flex flex-col justify-center order-2 md:order-1">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <h2 className="text-3xl font-bold mb-2 text-gray-900 dark:text-white">Create Account</h2>
-          <p className="text-gray-500 dark:text-gray-400 mb-8">Join today and get your personalized AI fitness plan.</p>
+    <div className="min-h-screen flex w-full -mt-20">
+      
+      {/* Form Side */}
+      <div className="w-full lg:w-1/2 flex flex-col justify-center bg-gray-50 dark:bg-[#0a0a0f] p-8 sm:p-16 lg:p-24 relative order-2 lg:order-1">
+        <div className="absolute top-10 left-10 lg:hidden">
+          <Link to="/" className="flex items-center gap-2 text-gray-900 dark:text-white font-bold font-heading">
+            <FaDumbbell className="text-accent-500" /> OptiFit AI
+          </Link>
+        </div>
+        
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="w-full max-w-md mx-auto">
+          <h2 className="text-4xl font-bold mb-2 font-heading text-gray-900 dark:text-white">Initialize Profile</h2>
+          <p className="text-gray-500 dark:text-gray-400 mb-10 text-lg">Input baseline metrics to begin.</p>
           
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Name</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Full Name</label>
               <input 
                 {...register('name')}
                 type="text" 
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none"
-                placeholder="John Doe"
+                className="w-full px-4 py-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-none focus:ring-1 focus:ring-accent-500 focus:border-accent-500 transition-all outline-none text-gray-900 dark:text-white placeholder-gray-400"
+                placeholder="Athlete Name"
               />
-              {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name.message}</p>}
+              {errors.name && <p className="mt-2 text-sm text-red-500 font-medium">{errors.name.message}</p>}
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Email Address</label>
               <input 
                 {...register('email')}
                 type="email" 
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none"
-                placeholder="you@example.com"
+                className="w-full px-4 py-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-none focus:ring-1 focus:ring-accent-500 focus:border-accent-500 transition-all outline-none text-gray-900 dark:text-white placeholder-gray-400"
+                placeholder="athlete@domain.com"
               />
-              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>}
+              {errors.email && <p className="mt-2 text-sm text-red-500 font-medium">{errors.email.message}</p>}
             </div>
             
             <div>
-              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Password</label>
+              <label className="block text-xs font-bold uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-2">Secure Password</label>
               <input 
                 {...register('password')}
                 type="password" 
-                className="w-full px-4 py-3 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all outline-none"
+                className="w-full px-4 py-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-none focus:ring-1 focus:ring-accent-500 focus:border-accent-500 transition-all outline-none text-gray-900 dark:text-white placeholder-gray-400"
                 placeholder="••••••••"
               />
-              {errors.password && <p className="mt-1 text-sm text-red-500">{errors.password.message}</p>}
+              {errors.password && <p className="mt-2 text-sm text-red-500 font-medium">{errors.password.message}</p>}
             </div>
             
             <button 
               type="submit" 
               disabled={isSubmitting}
-              className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md transition-colors disabled:opacity-70 disabled:cursor-not-allowed flex justify-center items-center"
+              className="w-full py-4 px-4 mt-8 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-accent-600 dark:hover:bg-accent-500 font-bold tracking-wide rounded-none transition-colors disabled:opacity-50 flex justify-center items-center"
             >
               {isSubmitting ? (
-                <span className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                <span className="w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin"></span>
               ) : (
-                'Sign Up'
+                'Create Profile'
               )}
             </button>
           </form>
           
-          <p className="mt-8 text-center text-gray-600 dark:text-gray-400">
-            Already have an account? <Link to="/login" className="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">Log in</Link>
-          </p>
+          <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800 text-sm text-gray-500 dark:text-gray-400">
+            Already optimized? <Link to="/login" className="text-gray-900 dark:text-white font-bold hover:text-accent-500 dark:hover:text-accent-400 transition-colors">Access Dashboard ↗</Link>
+          </div>
         </motion.div>
       </div>
 
-      <div className="hidden md:flex md:w-1/2 bg-gradient-to-br from-emerald-500 to-teal-700 p-12 text-white flex-col justify-center relative overflow-hidden order-1 md:order-2">
-        <div className="absolute top-0 left-0 w-full h-full opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-        <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.2 }}>
-          <h1 className="text-5xl font-bold mb-6">Start Your Journey</h1>
-          <p className="text-xl text-emerald-100">Stop guessing. Get a science-backed, AI-generated plan customized to your exact body and goals.</p>
-        </motion.div>
+      {/* Visual Side */}
+      <div className="hidden lg:flex lg:w-1/2 relative bg-gray-900 overflow-hidden order-1 lg:order-2">
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent z-10 opacity-80"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2000&auto=format&fit=crop" 
+          alt="Athlete preparing in locker room"
+          className="absolute inset-0 w-full h-full object-cover opacity-60 mix-blend-overlay grayscale"
+        />
+        <div className="relative z-20 flex flex-col justify-end p-16 h-full">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}>
+            <h1 className="text-6xl font-bold mb-6 font-heading text-white leading-tight">
+              Begin your protocol.
+            </h1>
+            <p className="text-xl text-gray-300 max-w-lg border-l-4 border-accent-500 pl-4">
+              Stop guessing. Join OptiFit AI to generate your first hyper-personalized, data-driven routine.
+            </p>
+          </motion.div>
+        </div>
       </div>
+
     </div>
   );
 }
