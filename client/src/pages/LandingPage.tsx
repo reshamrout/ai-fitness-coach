@@ -151,6 +151,98 @@ export default function LandingPage() {
         </div>
       </section>
 
+      {/* How it Works Section */}
+      <section className="w-full py-24 px-4 bg-gray-50 dark:bg-gray-900/50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-heading mb-4">How OptiFit Works</h2>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto">Your path to a healthier life in three simple steps.</p>
+          </div>
+          
+          <div className="flex flex-col md:flex-row gap-12 text-center relative">
+            {/* Connecting Line */}
+            <div className="hidden md:block absolute top-1/2 left-[10%] right-[10%] h-1 bg-gradient-to-r from-primary-200 to-accent-200 dark:from-primary-900 dark:to-accent-900 -z-10 transform -translate-y-1/2"></div>
+            
+            <div className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative">
+              <div className="w-16 h-16 mx-auto bg-primary-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 absolute -top-8 left-1/2 transform -translate-x-1/2 border-4 border-gray-50 dark:border-gray-900">1</div>
+              <h3 className="text-2xl font-bold mb-4 mt-4">Tell us about yourself</h3>
+              <p className="text-gray-600 dark:text-gray-400">Input your age, weight, goals, dietary restrictions, and how many days a week you want to train.</p>
+            </div>
+
+            <div className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative">
+              <div className="w-16 h-16 mx-auto bg-accent-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 absolute -top-8 left-1/2 transform -translate-x-1/2 border-4 border-gray-50 dark:border-gray-900">2</div>
+              <h3 className="text-2xl font-bold mb-4 mt-4">AI Crafts Your Plan</h3>
+              <p className="text-gray-600 dark:text-gray-400">Our advanced Gemini AI analyzes your data to generate a perfect 7-day workout and meal protocol.</p>
+            </div>
+
+            <div className="flex-1 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative">
+              <div className="w-16 h-16 mx-auto bg-pink-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mb-6 absolute -top-8 left-1/2 transform -translate-x-1/2 border-4 border-gray-50 dark:border-gray-900">3</div>
+              <h3 className="text-2xl font-bold mb-4 mt-4">Execute & Evolve</h3>
+              <p className="text-gray-600 dark:text-gray-400">Follow the routines, view meal images, and ask our AI Coach questions to keep adjusting as you grow.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="w-full py-20 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-4xl font-bold font-heading mb-16 text-center">Loved by athletes & beginners.</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="flex text-yellow-400 mb-4">★★★★★</div>
+              <p className="text-gray-600 dark:text-gray-300 mb-6 italic">"The meal visuals changed everything for me. I actually look forward to cooking the healthy meals OptiFit recommends because I know exactly what they should look like."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop" alt="User" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Sarah J.</h4>
+                  <p className="text-sm text-gray-500">Lost 15 lbs</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="flex text-yellow-400 mb-4">★★★★★</div>
+              <p className="text-gray-600 dark:text-gray-300 mb-6 italic">"As someone who travels a lot, having an AI generate hotel-room workouts instantly based on my available equipment is an absolute game-changer."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop" alt="User" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Michael T.</h4>
+                  <p className="text-sm text-gray-500">Maintained Muscle</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-sm border border-gray-100 dark:border-gray-700">
+              <div className="flex text-yellow-400 mb-4">★★★★★</div>
+              <p className="text-gray-600 dark:text-gray-300 mb-6 italic">"The AI Coach chat is incredible. Whenever I have a question about swapping out an ingredient or an exercise, I get a perfect, science-backed answer instantly."</p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 bg-gray-200 rounded-full overflow-hidden">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&h=150&fit=crop" alt="User" />
+                </div>
+                <div>
+                  <h4 className="font-bold">Elena R.</h4>
+                  <p className="text-sm text-gray-500">Marathon Runner</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="w-full py-24 px-4 bg-gradient-to-r from-primary-600 to-accent-600 text-white text-center">
+        <h2 className="text-4xl md:text-5xl font-bold font-heading mb-6">Ready to meet your AI Coach?</h2>
+        <p className="text-xl mb-10 opacity-90 max-w-2xl mx-auto">Join thousands of others who have optimized their fitness journeys with OptiFit AI.</p>
+        <Link to="/register" className="inline-block px-10 py-5 rounded-full bg-white text-primary-700 font-bold text-xl hover:shadow-2xl transition-all transform hover:-translate-y-1">
+          Create Your Free Account
+        </Link>
+      </section>
+
     </div>
   );
 }
